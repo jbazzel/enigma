@@ -1,0 +1,6 @@
+C:\enigma\EnigmaProject\bin\Debug\EnigmaProject.dll
+C:\enigma\EnigmaProject\bin\Debug\EnigmaProject.pdb
+C:\enigma\EnigmaProject\obj\Debug\EnigmaProject.csproj.CoreCompileInputs.cache
+C:\enigma\EnigmaProject\obj\Debug\EnigmaProject.dll
+C:\enigma\EnigmaProject\obj\Debug\EnigmaProject.pdb
+C:\enigma\EnigmaProject\obj\Debug\EnigmaProject.csprojResolveAssemblyReference.cache
