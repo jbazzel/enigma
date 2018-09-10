@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICipher.cs" />
+    <Compile Include="Contracts\ICipher.cs" />
     <Compile Include="Helpers\EnigmaHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotors\IRotor.cs" />
     <Compile Include="Rotors\Rotor1.cs" />
+    <Compile Include="ShiftCipher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

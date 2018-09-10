@@ -1,5 +1,5 @@
 ﻿
-namespace EnigmaProject
+namespace EnigmaProject.Contracts
 {
     public interface ICipher
     {

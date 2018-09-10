@@ -1,4 +1,6 @@
 ﻿
+using EnigmaProject.Contracts;
+
 namespace EnigmaProject.Rotors
 {
     interface IRotor : ICipher

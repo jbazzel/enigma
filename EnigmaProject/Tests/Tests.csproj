@@ -50,6 +50,7 @@
     <Compile Include="Helpers\EnigmaHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rotors\Rotor1Tests.cs" />
+    <Compile Include="ShiftCipherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnigmaProject.csproj">
