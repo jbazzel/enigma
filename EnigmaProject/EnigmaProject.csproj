@@ -46,6 +46,7 @@
     <Compile Include="Rotors\IRotor.cs" />
     <Compile Include="Rotors\Rotor1.cs" />
     <Compile Include="ShiftCipher.cs" />
+    <Compile Include="SubstitutionCipher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

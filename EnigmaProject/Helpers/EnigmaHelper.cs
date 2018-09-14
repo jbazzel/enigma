@@ -14,5 +14,15 @@ namespace EnigmaProject.Helpers
             input = input + 65;
             return (char)input;
         }
+        
+        // TODO: Needs Tests
+        public static char GetCharCyclic(int input)
+        {
+            input = input % 26;
+            if (input < 0)
+                input += 26;
+
+            return GetChar(input);
+        }
     }
 }

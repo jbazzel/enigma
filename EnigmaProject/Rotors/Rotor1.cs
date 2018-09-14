@@ -4,46 +4,55 @@ namespace EnigmaProject.Rotors
 {
     public class Rotor1 : IRotor
     {
-        private int offset = 0;
-        private char[] mapping;
+        private int pinSetting = 0;
+        private char dialSetting;
+        private char[] rotorMapping;
 
-        public Rotor1()
+        private ShiftCipher shiftCipher1;
+        private SubstitutionCipher substitutionCipher;
+        private ShiftCipher shiftCipher2;
+
+        public Rotor1(int pinSetting, char dialSetting)
         {
-            this.mapping = new char[] { 'E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O', 'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J' };
+            this.pinSetting = pinSetting;
+            this.dialSetting = dialSetting;
+            this.rotorMapping = new char[]{'E', 'K', 'M', 'F', 'L', 'G', 'D', 'Q', 'V', 'Z', 'N', 'T', 'O', 'W', 'Y', 'H', 'X', 'U', 'S', 'P', 'A', 'I', 'B', 'R', 'C', 'J' };
+
+            InitializeRotor();
         }
 
         public char Encipher(char input)
         {
-            var inputInt = EnigmaHelper.GetInt(input);
-            var totalOffset = inputInt + offset;
-            totalOffset = totalOffset % 26;
-            return this.mapping[totalOffset];
+            var encodedChar = shiftCipher1.Encipher(input);
+            encodedChar = substitutionCipher.Encipher(encodedChar);
+            return shiftCipher2.Encipher(encodedChar);
         }
 
-        public char GetSetting()
+        public char GetDialSetting()
         {
-            return EnigmaHelper.GetChar(offset);
+            return dialSetting;
         }
 
-        public void SetSetting(char setting)
+        public void SetDialSetting(char setting)
         {
-            offset = EnigmaHelper.GetInt(setting);
+            dialSetting = setting;
+            InitializeRotor();
         }
 
         public void Step()
         {
-            offset += 1;
-
-            if (offset > 25)
-                offset = 0;
+            var dialSettingInt = EnigmaHelper.GetInt(dialSetting);
+            dialSettingInt++;
+            SetDialSetting(EnigmaHelper.GetCharCyclic(dialSettingInt));            
         }
 
-        private char InnerEncipher(char input)
+        private void InitializeRotor()
         {
-            var inputInt = EnigmaHelper.GetInt(input);
-            var totalOffset = inputInt + offset;
-            totalOffset = totalOffset % 25;
-            return this.mapping[totalOffset];
+            var dialSettingInt = EnigmaHelper.GetInt(dialSetting);
+
+            shiftCipher1 = new ShiftCipher(dialSettingInt - pinSetting);
+            shiftCipher2 = new ShiftCipher(dialSettingInt);
+            substitutionCipher = new SubstitutionCipher(this.rotorMapping);
         }
     }
 }

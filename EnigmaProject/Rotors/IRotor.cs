@@ -5,8 +5,8 @@ namespace EnigmaProject.Rotors
 {
     interface IRotor : ICipher
     {
-        char GetSetting();
-        void SetSetting(char setting);
+        char GetDialSetting();
+        void SetDialSetting(char setting);
         void Step();
     }
 }
